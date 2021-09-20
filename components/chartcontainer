@@ -1,0 +1,91 @@
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchCryptoCurrencies } from '../actions/fectCurrencyActions';
+import { getCrypto } from '../selectors/getCrypto';
+import {
+    getIsUserDataLoading,
+    getUserLoading,
+} from '../selectors/getCryptoCurrencyLoading';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { CryptoCoin } from './CryptoCoin';
+import { addToCartAction } from '../actions';
+import { getCurrentPageName } from '../selectors/getCurrentPageName';
+import { PAGE_NAMES } from '../consts/PAGE_NAMES';
+import Chart from "react-google-charts";
+
+function ChartContainer({
+    cryptoCoinsData,
+}) {
+    return (
+        <React.Fragment>
+            <Row>
+                <Col xs={4} className="coin-logo-name-container chart">
+                    <div className="coin-logo-container">
+                        <a href="http://www.bitcoin.org">
+                            <img src="https://static.coinstats.app/coins/Bitcoin6l39t.png" alt="logo" width="30px" />
+                        </a>
+                    </div>
+                    <div className="coin-name-details-container">
+                        <span className="coin-name-container">Bitcoin</span>
+                        <span className="coin-symbol-container">BTC</span>
+                    </div>
+                </Col>
+                <Col xs={3} className="coin-value-details-container">
+                    <div className="coin-value-details-container">
+                        <span className="coin-price-container">
+                            ₹43722.23
+                        </span>
+                        <span
+                            className='coin-priceChange1w-container red-color'
+                        >
+                            -2.03%
+                        </span>
+                    </div>
+                </Col>
+            </Row>
+            <Row>
+                <Chart
+                    width={'600px'}
+                    height={'400px'}
+                    chartType="LineChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                        ['x', ''],
+                        [0, 0],
+                        [1, 10],
+                        [2, 23],
+                        [3, 17],
+                        [4, 18],
+                        [5, 9],
+                        [6, 11],
+                        [7, 27],
+                        [8, 33],
+                        [9, 40],
+                        [10, 32],
+                        [11, 35],
+                    ]}
+                    rootProps={{ 'data-testid': '1' }}
+                />
+            </Row>
+        </React.Fragment>
+    );
+}
+
+const mapStateToProps = (state) => {
+    return {
+        currentPageName: getCurrentPageName(state),
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (curencyDetails) => dispatch(addToCartAction(curencyDetails)),
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(ChartContainer);
