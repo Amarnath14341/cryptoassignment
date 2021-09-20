@@ -1,0 +1,107 @@
+.green-color {
+  color: green;
+}
+.red-color {
+  color: red;
+}
+
+.home-left-container {
+  background-color: rgb(245 245 245);
+}
+
+.home-right-container {
+    margin-top: 150px;
+}
+
+.home-header-container {
+  color: #fff;
+  background-color: #0d6efd;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 10px;
+}
+.home-header-container span {
+  font-size: 15px;
+}
+.home-header-container .coin-button-container {
+  margin-top: 15px;
+}
+.trending-coins-container {
+  background-color: rgb(245 245 245);
+  padding: 10px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.coin-logo-container {
+  display: inline-block;
+}
+
+.coin-name-details-container {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.coin-name-container,
+.coin-symbol-container,
+.coin-priceChange1w-container {
+  display: block;
+}
+.coin-name-container,
+.coin-price-container {
+  font-size: 14px;
+  font-weight: 600;
+}
+.coin-symbol-container,
+.coin-priceChange1w-container {
+  font-size: 10px;
+}
+.coin-symbol-container {
+  color: darkgrey;
+}
+.crypto-coin-conatiner {
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  box-shadow: 4px 4px 6px -6px #777;
+}
+.coin-logo-name-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+}
+.coin-priceChange1w-container {
+  text-align: right;
+}
+
+.coin-add-to-cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.coin-value-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.link-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.link-enabled {
+  cursor: pointer;
+}
